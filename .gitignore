@@ -1,0 +1,4 @@
+*.pyc
+*~
+lazy_import.egg-info/
+lazy_import/_version.py
