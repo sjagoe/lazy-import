@@ -29,7 +29,7 @@ class LazyProxyModule(object):
 
     def __init__(self, name):
         object.__setattr__(self, '__name__', name)
-        object.__setattr__(self, '__path__', '')
+        object.__setattr__(self, '__path__', [])
         lazy_import_data = LazyImportData(name)
         object.__setattr__(self, '_lazy_import_data', lazy_import_data)
 
