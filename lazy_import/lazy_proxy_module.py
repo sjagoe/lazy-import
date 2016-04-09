@@ -15,9 +15,10 @@ class LazyImportData(object):
             proxy = sys.modules.pop(self.modname)
             try:
                 module = importlib.import_module(self.modname)
-            finally:
-                sys.modules.pop(self.modname, None)
+            except ImportError:
                 sys.modules[self.modname] = proxy
+                raise
+            assert sys.modules[self.modname] is module
             self.module = module
         return module
 
